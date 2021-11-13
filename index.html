@@ -11,22 +11,25 @@
 
     <title>Dictionary</title>
 </head>
-<body>
+<body onload="listDisplay()">
 <div>
     <div class="input-group mb-3">
-        <input id="add" type="text" class="form-control" placeholder="Add a word " aria-describedby="button-addon2" aria-label="">
+        <input id="add" type="text" class="form-control" placeholder="Add a word" aria-describedby="button-addon2"
+               aria-label="">
         <button class="btn btn-outline-secondary" type="button" onclick="return addNewWord();">Add</button>
     </div>
 
     <div class="input-group mb-3">
-        <input id="search" type="text" class="form-control" placeholder="Find a word" aria-describedby="button-addon2" aria-label="">
+        <input id="search" type="text" class="form-control" placeholder="Find a word" aria-describedby="button-addon2"
+               aria-label="">
         <button class="btn btn-outline-secondary" type="button" onclick="return searchWord();">Search</button>
     </div>
 </div>
 <br>
 <div>
     <div class="btn-group" role="group" aria-label="Basic outlined example">
-        <button type="button" class="btn btn-outline-primary" onclick="return deleteAllWords()">Delete all words</button>
+        <button type="button" class="btn btn-outline-primary" onclick="return deleteAllWords()">Delete all words
+        </button>
     </div>
 </div>
 <br>
