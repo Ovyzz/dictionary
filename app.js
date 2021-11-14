@@ -1,4 +1,4 @@
-function listDisplay() {
+function displayList() {
     for (let i = 0; i < localStorage.length; ++i) {
         const key = localStorage.key(i);
         document.getElementById("wordList").innerHTML += '<li class="list-group-item list-group-item-dark">' + key + '</li>';
@@ -8,7 +8,7 @@ function listDisplay() {
 function addNewWord() {
     const word = document.getElementById("add").value;
     localStorage.setItem(word, "list");
-    display("word");
+    displayMessage ("word");
     setTimeout(function(){location.reload();}, 1000);
 
 }
@@ -17,30 +17,30 @@ function searchWord() {
     const word = document.getElementById("search").value;
     for(let i = 0; i < localStorage.length; ++i) {
         if(localStorage.key(i) === word) {
-            display("wordFound");
+            displayMessage ("wordFound");
             return false;
         }
-        display("wordNotFound");
+        displayMessage ("wordNotFound");
     }
 }
 
 function deleteAllWords () {
     localStorage.clear();
-    display("deletewords");
+    displayMessage ("deletewords");
     setTimeout(function(){location.reload();}, 1500);
 }
 
-function display(x) {
-    if (x === "word") {
+function displayMessage (messageType) {
+    if (messageType === "word") {
         document.getElementById("alert").innerHTML = '<li class="list-group-item list-group-item-success">The word was added successfully!</li>';
         return false;
-    } else if (x === "wordFound") {
+    } else if (messageType === "wordFound") {
         document.getElementById("alert").innerHTML = '<li class="list-group-item list-group-item-success">The word is in the dictionary</li>';
         return false;
-    } else if (x === "wordNotFound") {
+    } else if (messageType === "wordNotFound") {
         document.getElementById("alert").innerHTML = '<li class="list-group-item list-group-item-danger">The word was not found in the list</li>';
         return false;
-    } else if (x === "deletewords") {
+    } else if (messageType === "deletewords") {
         document.getElementById("alert").innerHTML = '<li class="list-group-item list-group-item-warning">All words have been deleted!</li>';
         return false;
     }
