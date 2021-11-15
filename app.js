@@ -8,7 +8,7 @@ function displayList() {
 function addNewWord() {
     const word = document.getElementById("add").value;
     localStorage.setItem(word, "list");
-    displayMessage ("word");
+    displayMessage ("addNewWord");
     setTimeout(function(){location.reload();}, 1000);
 
 }
@@ -26,12 +26,12 @@ function searchWord() {
 
 function deleteAllWords () {
     localStorage.clear();
-    displayMessage ("deletewords");
+    displayMessage ("deleteAllWords");
     setTimeout(function(){location.reload();}, 1500);
 }
 
 function displayMessage (messageType) {
-    if (messageType === "word") {
+    if (messageType === "addNewWord") {
         document.getElementById("alert").innerHTML = '<li class="list-group-item list-group-item-success">The word was added successfully!</li>';
         return false;
     } else if (messageType === "wordFound") {
@@ -40,7 +40,7 @@ function displayMessage (messageType) {
     } else if (messageType === "wordNotFound") {
         document.getElementById("alert").innerHTML = '<li class="list-group-item list-group-item-danger">The word was not found in the list</li>';
         return false;
-    } else if (messageType === "deletewords") {
+    } else if (messageType === "deleteAllWords") {
         document.getElementById("alert").innerHTML = '<li class="list-group-item list-group-item-warning">All words have been deleted!</li>';
         return false;
     }
